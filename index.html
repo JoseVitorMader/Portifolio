@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5FFFA;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #5C5470;
+        }
+    
+        .container {
+            background: #F0FFF0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: auto;
+        }
+        img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+        .gallery img {
+            max-width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .gallery div {
+            background: #FFF0F5;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        li {
+            text-align: center;
+            align-content: center;
+            background: #FFF0F5;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            width: 500px;
+        }
+        a {
+            color: #8E806A;
+        }
+        mark {
+            background-color: #FFF8DC;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="color:#A4907C">Sobre Mim</h1>
+
+        <h2 style="color:#C8B6A6">Meu Nome</h2>
+        <p>José Vitor Mader</p>
+        
+        <img src="./eu.jpeg" alt="Minha Foto">
+        
+        <hr>
+        <h2>Minha Biografia</h2>
+        <p><strong>💻 Programador | Desenvolvedor de Aplicativos | Ciência de Dados</strong></p>
+        <p>Atualmente, curso Técnico em Desenvolvimento de Sistemas e Técnico em Ciências de Dados, combinando conhecimento em programação e análise de dados para desenvolver soluções inovadoras.</p>
+        <p>Tenho experiência em <mark>JavaScript, HTML, CSS e SQL</mark>, criando aplicações funcionais e eficientes.</p>
+        <p>Sou o desenvolvedor do <strong>STUDENTOOK</strong>, um aplicativo para a disponibilização de livros didáticos do PNLD para estudantes de escolas públicas, projeto que conquistou o <ins>2º lugar</ins> na XVI Feira Estadual FECITEC em 2024.</p>
+        <p>Também fui vencedor do <strong>Desafio de Dados da Vivo (nacional)</strong> em 2024, alcançando o <sup>1º</sup> lugar com o projeto <em>Fuuto</em>, um aplicativo com inteligência artificial para gestão de alimentos e redução do desperdício nas escolas públicas estaduais de Santa Catarina.</p>
+        <p>Busco sempre aprimorar minhas habilidades e desenvolver projetos que causem impacto positivo na sociedade. 🚀</p>
+
+        <h3>Minhas Habilidades</h3>
+        <ul>
+            <li>Comunicativo</li>
+            <li>Inglês Fluente</li>
+            <li>Proativo</li>
+            <li>Ágil</li>
+            <li>Facilidade em se adaptar</li>
+            <li>Conhecimento do pacote Office</li>
+            <li>Conhecimento em Linguagens de Programação</li>
+        </ul>
+
+        <h3>Meus Hobbies</h3>
+        <ul>
+            <li>Ler</li>
+            <li>Programar</li>
+            <li>Ouvir Música</li>
+            <li>Escrever</li>
+        </ul>
+        <hr>
+
+        <h2>Minhas Premiações</h2>
+        <div class="gallery">
+            <div>
+                <h3>2º Lugar no Innovation Camp da JA Brasil</h3>
+                <img src="./innovationCamp.jpeg" alt="2º Lugar no Innovation Camp da JA Brasil">
+                <p>Competição voltada para inovação e empreendedorismo, destacando ideias criativas e aplicáveis ao mercado.</p>
+            </div>
+            <div>
+                <h3>2º Lugar na XXVI FECITEC Estadual</h3>
+                <img src="./fecitec.jpeg" alt="2º Lugar na XXVI FECITEC Estadual">
+                <p>Feira Estadual de Ciência e Tecnologia, premiando projetos de impacto acadêmico e social.</p>
+            </div>
+            <div>
+                <h3>1º Lugar no Nacional do Desafio de Dados da Vivo</h3>
+                <img src="./vivo.jpeg" alt="1º Lugar no Nacional do Desafio de Dados da Vivo">
+                <p>Competição nacional promovida pela Vivo, premiando a melhor solução em análise de dados e inteligência artificial.</p>
+            </div>
+        </div>
+        <hr>
+
+        <h2>Links</h2>
+        <p>Saiba mais sobre mim no meu <a href="https://github.com/JoseVitorMader" target="_blank">GitHub</a>!</p>
+        <p>Também possuo uma conta na plataforma do <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-mader-866199301/" target="_blank">LinkedIn</a>!</p>
+    </div>
+
+</body>
+</html>
