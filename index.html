@@ -3,162 +3,601 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mim</title>
+    <title>José Vitor Mader - Portfólio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F5FFFA;
-            text-align: center;
+        * {
             margin: 0;
-            padding: 20px;
-            color: #5C5470;
+            padding: 0;
+            box-sizing: border-box;
         }
-    
-        .container {
-            background: #F0FFF0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
-            margin: auto;
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #475569);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            text-align: center;
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
         }
-        img {
-            max-width: 200px;
-            height: auto;
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            margin-top: 10px;
+            animation: float 20s infinite ease-in-out;
         }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            left: 90%;
+            animation-delay: 6s;
+        }
+
+        .shape:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            left: 50%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            margin: 20px auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2.2rem;
+            margin: 30px 0 20px 0;
+            font-weight: 600;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #f5576c;
+            font-size: 1.8rem;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin: 20px 0 10px 0;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 5px solid #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
         }
-        .gallery img {
-            max-width: 200px;
+
+        .gallery-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .gallery-item:hover::before {
+            left: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            max-width: 250px;
             height: 200px;
+            object-fit: cover;
             border-radius: 10px;
+            margin-bottom: 15px;
         }
-        .gallery div {
-            background: #FFF0F5;
-            padding: 10px;
+
+        .gallery-item h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            max-width: 300px;
+            height: 180px;
+            object-fit: cover;
             border-radius: 10px;
+            margin-bottom: 15px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+
+        .skills-list {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            flex-direction: column;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .skill-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .links-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .links-section a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
             align-items: center;
+            gap: 10px;
+            margin: 10px 15px;
+            padding: 10px 15px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
         }
-        li {
-            text-align: center;
-            align-content: center;
-            background: #FFF0F5;
-            padding: 8px;
-            margin: 5px;
-            border-radius: 5px;
-            width: 500px;
+
+        .links-section a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
-        a {
-            color: #8E806A;
+
+        .miniImagens {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
         }
-        mark {
-            background-color: #FFF8DC;
-        }
+
         .fuuto {
             font-family: 'Permanent Marker', cursive;
         }
-        .miniImagens{
-            width: 30px;
-            height: 30px;
-            margin-top: 10px;
+
+        .tanamedida {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #f5576c;
+        }
+
+        mark {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 40px 0;
+            border-radius: 1px;
+        }
+
+        .professional-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .professional-section h2 {
+            color: white;
+        }
+
+        .professional-section h2::after {
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-list {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
 
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
     <div class="container">
-        <h1 style="color:#A4907C">Sobre Mim</h1>
-
-        <h2 style="color:#C8B6A6">Meu Nome</h2>
-        <p>José Vitor Mader</p>
+        <h1>José Vitor Mader</h1>
+        <p style="font-size: 1.3rem; color: #667eea; font-weight: 500;">💻 Desenvolvedor Full Stack | Especialista em Ciência de Dados | Inovador em Tecnologia</p>
         
-        <img src="./eu.jpeg" alt="Minha Foto">
+        <img src="./eu.jpg" alt="Minha Foto" class="profile-img">
         
-        <hr>
-        <h2>Minha Biografia</h2>
-        <p><strong>💻 Programador | Desenvolvedor de Aplicativos | Ciência de Dados</strong></p>
-        <p>Atualmente, curso Técnico em Desenvolvimento de Sistemas e Técnico em Ciências de Dados, combinando conhecimento em programação e análise de dados para desenvolver soluções inovadoras.</p>
-        <p>Tenho experiência em <mark>JavaScript, HTML, CSS e SQL</mark>, criando aplicações funcionais e eficientes.</p>
-        <p>Sou o desenvolvedor do <strong>STUDENTOOK</strong>, um aplicativo para a disponibilização de livros didáticos do PNLD para estudantes de escolas públicas, projeto que conquistou o <ins>2º lugar</ins> na XVI Feira Estadual FECITEC em 2024.</p>
-        <p>Também fui vencedor do <strong>Desafio de Dados da Vivo (nacional)</strong> em 2024, alcançando o <sup>1º</sup> lugar com o projeto <em>Fuuto</em>, um aplicativo com inteligência artificial para gestão de alimentos e redução do desperdício nas escolas públicas estaduais de Santa Catarina.</p>
-        <p>Busco sempre aprimorar minhas habilidades e desenvolver projetos que causem impacto positivo na sociedade. 🚀</p>
+        <div class="professional-section">
+            <h2>Perfil Profissional</h2>
+            <p><strong>🚀 Desenvolvedor na JMA Tecnologia</strong></p>
+            <p>Atualmente trabalho como desenvolvedor na JMA Tecnologia, onde aplico minhas habilidades em desenvolvimento de sistemas e análise de dados para criar soluções tecnológicas inovadoras. Paralelamente, curso Técnico em Desenvolvimento de Sistemas e Técnico em Ciências de Dados, combinando teoria acadêmica com experiência prática profissional.</p>
+            <p>Tenho expertise em <mark>JavaScript, HTML, CSS, SQL, Python e React</mark>, desenvolvendo aplicações web completas e sistemas de análise de dados.</p>
+            <p>Reconhecido por projetos de impacto social e premiações nacionais, busco sempre desenvolver soluções que transformem positivamente a sociedade através da tecnologia. 🌟</p>
+        </div>
 
-        <h3>Minhas Habilidades</h3>
-        <ul>
-            <li>Comunicativo</li>
-            <li>Inglês Fluente</li>
-            <li>Proativo</li>
-            <li>Ágil</li>
-            <li>Facilidade em se adaptar</li>
-            <li>Conhecimento do pacote Office</li>
-            <li>Conhecimento em Linguagens de Programação</li>
-        </ul>
-
-        <h3>Meus Hobbies</h3>
-        <ul>
-            <li>Ler</li>
-            <li>Programar</li>
-            <li>Ouvir Música</li>
-            <li>Escrever</li>
-        </ul>
         <hr>
 
-        <h2>Minhas Premiações</h2>
+        <h2>Minhas Conquistas Recentes</h2>
         <div class="gallery">
-            <div>
-                <h3>2º Lugar no Innovation Camp da JA Brasil</h3>
+            <div class="gallery-item">
+                <h3>🥇 1º Lugar - Feira Interna (30/06/2025)</h3>
+                <img src="./tanamedida.png" alt="1º Lugar Feira Interna - Tá na Medida">
+                <p>Projeto "Tá na Medida" conquistou o primeiro lugar na feira interna da escola, demonstrando inovação em tecnologia aplicada à sustentabilidade alimentar.</p>
+            </div>
+            <div class="gallery-item">
+                <h3>🥈 2º Lugar no Innovation Camp da JA Brasil</h3>
                 <img src="./innovationCamp.jpeg" alt="2º Lugar no Innovation Camp da JA Brasil">
                 <p>Competição voltada para inovação e empreendedorismo, destacando ideias criativas e aplicáveis ao mercado.</p>
             </div>
-            <div>
-                <h3>2º Lugar na XXVI FECITEC Estadual</h3>
+            <div class="gallery-item">
+                <h3>🥈 2º Lugar na XXVI FECITEC Estadual</h3>
                 <img src="./Fecitec.jpeg" alt="2º Lugar na XXVI FECITEC Estadual">
                 <p>Feira Estadual de Ciência e Tecnologia, premiando projetos de impacto acadêmico e social.</p>
             </div>
-            <div>
-                <h3>1º Lugar no Nacional do Desafio de Dados da Vivo</h3>
+            <div class="gallery-item">
+                <h3>🥇 1º Lugar no Nacional do Desafio de Dados da Vivo</h3>
                 <img src="./Vivo.jpeg" alt="1º Lugar no Nacional do Desafio de Dados da Vivo">
                 <p>Competição nacional promovida pela Vivo, premiando a melhor solução em análise de dados e inteligência artificial.</p>
             </div>
+            <div class="gallery-item">
+                <h3>🏆 Classificação para Feira Regional</h3>
+                <img src="./feirainterna2.jpg" alt="Classificação para Feira Regional">
+                <p>Projeto "Tá na Medida" classificado para representar nossa escola na feira regional de ciência e tecnologia.</p>
+            </div>
         </div>
+
         <hr>
+
         <h2>Meus Projetos</h2>
-        <h3 class="fuuto">Fuuto - Inteligência Artificial para Gestão de Alimentos</h3>
-        <p class="fuuto">O Fuuto é um aplicativo inovador que utiliza inteligência artificial para transformar a gestão de alimentos nas escolas públicas estaduais de Santa Catarina. O projeto nasceu com o propósito de reduzir o desperdício de alimentos e promover a sustentabilidade dentro do ambiente escolar, otimizando o uso dos ingredientes na preparação das refeições.</p>
-        
-        <h4 class="fuuto">🎯 Objetivo Geral</h4>
-        <p class="fuuto">O Fuuto busca reduzir desperdícios na cozinha escolar por meio de um aplicativo integrado com inteligência artificial, que auxilia os profissionais na definição das quantidades adequadas de ingredientes para cada refeição, tornando o preparo mais eficiente e sustentável.</p>
-        
-        <h4 class="fuuto">📌 Objetivos Específicos</h4>
-        <ul class="fuuto">
-            <li>✅ Gestão inteligente de alimentos – Desenvolvimento de um aplicativo que calcula automaticamente as quantidades adequadas de ingredientes com base no número de estudantes presentes a cada refeição.</li>
-            <li>✅ Monitoramento do consumo – Implementação de um sistema de visão computacional acoplado à lixeira orgânica do refeitório para detectar os alimentos menos consumidos pelos estudantes.</li>
-            <li>✅ Feedback sobre a merenda escolar – Criação de uma plataforma onde os estudantes podem avaliar os alimentos servidos, permitindo ajustes no cardápio conforme suas preferências e incentivando uma alimentação mais atrativa e nutritiva.</li>
-            <li>✅ Redução do desperdício e incentivo à adubação – Utilização de técnicas sustentáveis, como compostagem dos resíduos orgânicos, para minimizar o impacto ambiental e, ao mesmo tempo, incentivar o uso de produtos orgânicos na alimentação escolar.</li>
-        </ul>
-        <p class="fuuto">Com essa abordagem, o Fuuto busca não apenas otimizar a gestão dos alimentos nas escolas, mas também conscientizar estudantes e profissionais sobre a importância da sustentabilidade, tornando o ambiente escolar um espaço mais inovador e ecologicamente responsável. 🚀♻️</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3 class="tanamedida">🍎 Tá na Medida - Redução de Desperdício Alimentar</h3>
+                <img src="./tanamedida.png" alt="Projeto Tá na Medida">
+                <p>Aplicativo inovador desenvolvido para reduzir o desperdício de alimentos nas escolas estaduais. Utilizando inteligência artificial e análise de dados, o sistema otimiza o planejamento de refeições e monitora o consumo alimentar.</p>
+                <p><strong>🎯 Principais Funcionalidades:</strong></p>
+                <ul style="text-align: left; margin: 15px 0;">
+                    <li>📊 Análise preditiva de consumo</li>
+                    <li>🤖 IA para otimização de porções</li>
+                    <li>📈 Dashboard de monitoramento</li>
+                    <li>🔄 Sistema de feedback dos estudantes</li>
+                </ul>
+                <p><strong>🏆 Conquistas:</strong> 1º lugar na feira interna (30/06/2025) e classificação para a feira regional</p>
+                <p><strong>🌐 Acesse:</strong> <a href="https://tanamedida.app.br" target="_blank" style="color: white;">tanamedida.app.br</a></p>
+            </div>
+
+            <div class="project-card">
+                <h3 class="fuuto">🚀 Fuuto - Inteligência Artificial para Gestão de Alimentos</h3>
+                <img src="./fuuto.png" alt="Projeto Fuuto">
+                <p class="fuuto">O Fuuto é um aplicativo inovador que utiliza inteligência artificial para transformar a gestão de alimentos nas escolas públicas estaduais de Santa Catarina. Vencedor do Desafio Nacional de Dados da Vivo 2024.</p>
+                
+                <h4 class="fuuto">🎯 Objetivos Principais</h4>
+                <ul style="text-align: left; margin: 15px 0;">
+                    <li>✅ Gestão inteligente de ingredientes com IA</li>
+                    <li>✅ Monitoramento por visão computacional</li>
+                    <li>✅ Sistema de feedback estudantil</li>
+                    <li>✅ Sustentabilidade através de compostagem</li>
+                </ul>
+                <p class="fuuto">🏆 1º Lugar Nacional no Desafio de Dados da Vivo 2024</p>
+            </div>
+
+            <div class="project-card">
+                <h3>🎓 Site CEDUP Perfeito Manoel de Aguiar</h3>
+                <img src="./logo cedup.jpg" alt="Site CEDUP">
+                <p>Desenvolvimento completo do site oficial da escola CEDUP Perfeito Manoel de Aguiar. Site responsivo e moderno, com sistema de gestão de conteúdo e integração com redes sociais.</p>
+                <p><strong>💻 Tecnologias:</strong> HTML5, CSS3, JavaScript, PHP, MySQL</p>
+                <p><strong>🌐 Acesse:</strong> <a href="https://www.cedupguaramirim.com.br" target="_blank" style="color: white;">cedupguaramirim.com.br</a></p>
+            </div>
+
+            <div class="project-card">
+                <h3>🗳️ Site UniCEDUP - Chapa do Grêmio Estudantil</h3>
+                <img src="./logo unicedup.jpg" alt="Site UniCEDUP">
+                <p>Desenvolvimento do site da chapa UniCEDUP para eleições do grêmio estudantil. Interface moderna e interativa, com propostas, galeria de fotos e sistema de contato.</p>
+                <p><strong>💻 Tecnologias:</strong> React, Next.js, CSS Modules, Vercel</p>
+                <p><strong>🌐 Acesse:</strong> <a href="https://unicedup.vercel.app" target="_blank" style="color: white;">unicedup.vercel.app</a></p>
+            </div>
+        </div>
+
         <hr>
 
-        <h2>Links</h2>
-        <p>Saiba mais sobre mim no meu <a href="https://github.com/JoseVitorMader" target="_blank">GitHub</a>! <img class="miniImagens" src="/Aula01/Github.png"></p>
-        <p>Também possuo uma conta na plataforma do <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-mader-866199301/" target="_blank">LinkedIn</a>!<img class="miniImagens" src="/Aula01/LinkedIn.png"></p>
-        <p>Conhecça mais sobre o Fuuto no nosso <a href="https://sites.google.com/estudante.sed.sc.gov.br/fuuto/in%C3%ADcio" target="_blank">Site Oficial</a>!<img class="miniImagens" src="/Aula01/LogoFuuto.jpg"></p>
-        
-        
-    </div>
+        <h2>Minhas Habilidades</h2>
+        <div class="skills-list">
+            <div class="skill-item">💬 Comunicativo</div>
+            <div class="skill-item">🌍 Inglês Fluente</div>
+            <div class="skill-item">⚡ Proativo</div>
+            <div class="skill-item">🏃 Ágil</div>
+            <div class="skill-item">🔄 Adaptabilidade</div>
+            <div class="skill-item">📊 Pacote Office</div>
+            <div class="skill-item">💻 JavaScript</div>
+            <div class="skill-item">🐍 Python</div>
+            <div class="skill-item">⚛️ React</div>
+            <div class="skill-item">🎨 CSS/HTML</div>
+            <div class="skill-item">🗄️ SQL</div>
+            <div class="skill-item">🤖 Machine Learning</div>
+            <div class="skill-item">📈 Data Science</div>
+            <div class="skill-item">🚀 Node.js</div>
+        </div>
 
+        <h2>Meus Hobbies</h2>
+        <div class="skills-list">
+            <div class="skill-item">📚 Leitura</div>
+            <div class="skill-item">💻 Programação</div>
+            <div class="skill-item">🎵 Música</div>
+            <div class="skill-item">✍️ Escrita</div>
+            <div class="skill-item">🎮 Gaming</div>
+            <div class="skill-item">🌱 Sustentabilidade</div>
+        </div>
+
+        <hr>
+
+        <div class="links-section">
+            <h2>Conecte-se Comigo</h2>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                <a href="https://github.com/JoseVitorMader" target="_blank">
+                    <img class="miniImagens" src="./github.jpeg" alt="GitHub">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/josé-vitor-mader-866199301/" target="_blank">
+                    <img class="miniImagens" src="./linkedin.png" alt="LinkedIn">
+                    LinkedIn
+                </a>
+                <a href="https://sites.google.com/estudante.sed.sc.gov.br/fuuto/início" target="_blank">
+                    <img class="miniImagens" src="./fuuto.png" alt="Fuuto">
+                    Site Fuuto
+                </a>
+                <a href="https://tanamedida.app.br" target="_blank">
+                    <img class="miniImagens" src="./tanamedida.png" alt="Tá na Medida">
+                    Tá na Medida
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
