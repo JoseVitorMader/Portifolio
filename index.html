@@ -10,6 +10,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        p, h1, h2, h3, h4, li {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
         }
 
         body {
@@ -175,7 +186,7 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 15px;
-            color: #555;
+            color: #d5cfcf;
         }
 
         .profile-img {
@@ -271,6 +282,19 @@
             height: 200%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
             animation: spin 20s linear infinite;
+            pointer-events: none;
+        }
+
+        .project-card a {
+            color: white !important;
+            text-decoration: underline;
+            position: relative;
+            z-index: 10;
+            pointer-events: all;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         @keyframes spin {
@@ -351,14 +375,31 @@
             align-items: center;
             gap: 10px;
             margin: 10px 15px;
-            padding: 10px 15px;
+            padding: 15px 20px;
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 100;
+            cursor: pointer;
+            min-width: 120px;
+            justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .links-section a:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
+        }
+
+        .links-section a * {
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .miniImagens {
@@ -408,6 +449,7 @@
         .professional-section h2::after {
             background: white;
         }
+
 
         @media (max-width: 768px) {
             .container {
